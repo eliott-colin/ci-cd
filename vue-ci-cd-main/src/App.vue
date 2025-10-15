@@ -3,6 +3,8 @@ import NavBar from "./components/NavBar.vue";
 let var = "hello";
 
 
+
+
 </script>
 
 <template>

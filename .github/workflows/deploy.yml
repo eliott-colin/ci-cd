@@ -1,31 +1,40 @@
-name: Deploy to GitHub Pages
+name: Deploy Vue Vite site to GitHub Pages
 
 on:
   push:
     branches:
-      - main # branche source de ton code
+      - main # change si ta branche principale est autre
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Récupérer le code du repo
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # 2️⃣ Installer les dépendances
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      # 3️⃣ Construire le projet (build)
       - name: Build project
         run: npm run build
 
-      # 4️⃣ Déployer sur GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # dossier généré par ton build
-          publish_branch: gh-pages # branche de déploiement
+          publish_dir: ./dist
+
+
+          

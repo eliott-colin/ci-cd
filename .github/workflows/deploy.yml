@@ -3,7 +3,7 @@ name: Deploy Vue Vite site to GitHub Pages
 on:
   push:
     branches:
-      - main # change si ta branche principale est autre
+      - main # change for default branch
 
 jobs:
   build-and-deploy:

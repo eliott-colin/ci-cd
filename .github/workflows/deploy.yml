@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main   # branche source de ton code
+      - main # branche source de ton code
 
 jobs:
   build-and-deploy:
@@ -27,5 +27,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist        # dossier généré par ton build
-          publish_branch: gh-pages   # branche de déploiement
+          publish_dir: ./dist # dossier généré par ton build
+          publish_branch: gh-pages # branche de déploiement

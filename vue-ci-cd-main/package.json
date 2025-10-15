@@ -11,8 +11,7 @@
     "lint": "eslint --ext .js,.vue --fix src",
     "format:check": "prettier .  --check",
     "format": "prettier .  --write",
-    "prepare": "husky",
-    "test": "echo \"No tests specified\" && exit 0"
+    "prepare": "husky"
   },
   "dependencies": {
     "i": "^0.3.7",
